@@ -1,0 +1,33 @@
+name: basic_cleaning
+conda_env: conda.yml
+
+entry_points:
+  main:
+    parameters:
+
+      input_artifact:
+        description: Fully-qualified artifact name for the input artifact
+        type: string
+
+      output_artifact:
+        description: Name of Weights & Biases artifact to create
+        type: string
+
+      output_type:
+        description: Step of the pipeline that will generate the output artifact
+        type: string
+
+      output_description:
+        description: Description of the Artifact to be created
+        type: string
+
+      min_price:
+        description: Exclude data points below a set value to remove unusually low values.
+        type: float
+
+      max_price:
+        description: Exclude data points above a set value to remove unusually high values.
+        type: float
+
+    command: >-
+        python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price}
