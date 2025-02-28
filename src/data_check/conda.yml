@@ -3,10 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10.0
-  - pandas=2.1.3
-  - pytest=6.2.2
-  - scipy=1.5.2
+  - python=3.10
+  - pandas=1.4.2  # Downgraded to avoid conflicts
+  - pytest=7.1.1  # Updated to a more recent version
+  - scipy=1.7.3   # Updated to a more recent version
   - pip=23.3.1
   - pip:
       - mlflow==2.8.1
