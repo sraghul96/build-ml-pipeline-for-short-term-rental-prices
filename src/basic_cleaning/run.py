@@ -33,7 +33,8 @@ def go(args):
     min_price = getattr(args, "min_price")
     max_price = getattr(args, "max_price")
     df = df[(df["price"] >= min_price) & (df["price"] <= max_price)]
-    logger.info(f"Cleaned data shape: {df.shape}")
+    df = df[(df["longitude"].between(-74.25, -73.50)) & (df["latitude"].between(40.5, 41.2))]
+    logger.info(f"Cleaned data shape: {df.shape}. Trimmed price and geolocation outliers.")
 
     # Storing cleaned data
     output_artifact = getattr(args, "output_artifact")
